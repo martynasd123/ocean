@@ -1,28 +1,80 @@
-[gd_scene load_steps=4 format=4 uid="uid://cpd63ieith585"]
+[gd_scene load_steps=13 format=4 uid="uid://cpd63ieith585"]
 
 [ext_resource type="PackedScene" uid="uid://ro7jjanvt1rm" path="res://characters/player/player.tscn" id="2_5swkf"]
 [ext_resource type="TileSet" uid="uid://tivyv7sx113g" path="res://images/backgrounds/test-bg.tres" id="2_k7tjk"]
 [ext_resource type="TileSet" uid="uid://do08its31phhk" path="res://images/sprites/tiles/sand/sand.tres" id="3_oxtxw"]
+[ext_resource type="Texture2D" uid="uid://6mn30t0av0sh" path="res://images/sprites/bell/bell.png" id="4_ckdtq"]
+[ext_resource type="Texture2D" uid="uid://bruvixixg5iqu" path="res://images/sprites/rocks/rocks.png" id="5_jitlm"]
+[ext_resource type="Shader" path="res://shaders/distortion.gdshader" id="6_88vih"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_u5mc1"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_s374e"]
+noise = SubResource("FastNoiseLite_u5mc1")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n07gp"]
+shader = ExtResource("6_88vih")
+shader_parameter/speed = Vector2(0.1, 0.01)
+shader_parameter/intensity = 0.01
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_s374e")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_pc5k3"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_bihif"]
+seamless = true
+noise = SubResource("FastNoiseLite_pc5k3")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n2jvj"]
+shader = ExtResource("6_88vih")
+shader_parameter/speed = Vector2(0.1, 0.01)
+shader_parameter/intensity = 0.01
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_bihif")
 
 [node name="Diving-bell" type="Node2D"]
 
 [node name="background" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0.3, 0.3)
+scroll_offset = Vector2(0, 1100)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="background"]
-position = Vector2(0, 720)
-tile_map_data = PackedByteArray("AAAAAP//AAAAAAAAAAABAP//AAAAAAAAAAACAP//AAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAP7/AAAAAAAAAAABAP7/AAAAAAAAAAACAP7/AAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAAAP//AQAAAAAAAAACAP//AgAAAAAAAAACAP7/AgAAAAAAAAAAAP7/AgAAAAAAAAABAP7/AgAAAAAAAAABAP//AgAAAAAAAAA=")
 tile_set = ExtResource("2_k7tjk")
 
 [node name="foreground" type="Node2D" parent="."]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="foreground"]
-tile_map_data = PackedByteArray("AAAAAAAABgAAAAAAAAABAAAABgAAAAAAAAACAAAABgAAAAAAAAADAAAABgAAAAAAAAAEAAAABgAAAAAAAAAFAAAABgAAAAAAAAAGAAAABgAAAAAAAAAHAAAABgAAAAAAAAAIAAAABgAAAAAAAAAJAAAABgAAAAAAAAAKAAAABgAAAAAAAAALAAAABgAAAAAAAAAMAAAABgAAAAAAAAANAAAABgAAAAAAAAAOAAAABgAAAAAAAAAPAAAABgAAAAAAAAAQAAAABgAAAAAAAAARAAAABgAAAAAAAAASAAAABgAAAAAAAAATAAAABgAAAAAAAAAUAAAABgAAAAAAAAAVAAAABgAAAAAAAAAWAAAABgAAAAAAAAAXAAAABgAAAAAAAAAYAAAABgAAAAAAAAAZAAAABgAAAAAAAAAaAAAABgAAAAAAAAAbAAAABgAAAAAAAAAcAAAABgAAAAAAAAAdAAAABgAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAAAAAABgAAAAAAAAABAAAABgAAAAAAAAACAAAABgAAAAAAAAADAAAABgAAAAAAAAAEAAAABgAAAAAAAAAFAAAABgAAAAAAAAAGAAAABgAAAAAAAAAHAAAABgAAAAAAAAAIAAAABgAAAAAAAAAJAAAABgAAAAAAAAAKAAAABgAAAAAAAAALAAAABgAAAAAAAAAMAAAABgAAAAAAAAANAAAABgAAAAAAAAAOAAAABgAAAAAAAAAPAAAABgAAAAAAAAAQAAAABgAAAAAAAAARAAAABgAAAAAAAAASAAAABgAAAAAAAAATAAAAAgAAAAAAAAAUAAAAAAAAAAAAAAAVAAAAAAAAAAAAAAAWAAAABQAAAAAAAAAXAAAABgAAAAAAAAAYAAAABgAAAAAAAAAZAAAABgAAAAAAAAAaAAAABgAAAAAAAAAbAAAABgAAAAAAAAAcAAAABgAAAAAAAAAdAAAABgAAAAAAAAAAAAEAAAAAAAAAAAABAAEAAAAAAAAAAAACAAEAAAAAAAAAAAADAAEAAAAAAAAAAAAEAAEAAAAAAAAAAAAFAAEAAAAAAAAAAAAGAAEAAAAAAAAAAAAHAAEAAAAAAAAAAAAIAAEAAAAAAAAAAAAJAAEAAAAAAAAAAAAKAAEAAAAAAAAAAAALAAEAAAAAAAAAAAAMAAEAAAAAAAAAAAANAAEAAAAAAAAAAAAOAAEAAAAAAAAAAAAPAAEAAAAAAAAAAAAQAAEAAAAAAAAAAAARAAEAAAAAAAAAAAASAAEAAAAAAAAAAAATAAEAAAAAAAAAAAAUAAEAAAAAAAAAAAAVAAEAAAAAAAAAAAAWAAEAAAAAAAAAAAAXAAEAAAAAAAAAAAAYAAEAAAAAAAAAAAAZAAEAAAAAAAAAAAAaAAEAAAAAAAAAAAAbAAEAAAAAAAAAAAAcAAEAAAAAAAAAAAAdAAEAAAAAAAAAAAAdAAIAAAAAAAAAAAAcAAIAAAAAAAAAAAAbAAIAAAAAAAAAAAAaAAIAAAAAAAAAAAAZAAIAAAAAAAAAAAAYAAIAAAAAAAAAAAAXAAIAAAAAAAAAAAAWAAIAAAAAAAAAAAAVAAIAAAAAAAAAAAAUAAIAAAAAAAAAAAATAAIAAAAAAAAAAAASAAIAAAAAAAAAAAARAAIAAAAAAAAAAAAQAAIAAAAAAAAAAAAPAAIAAAAAAAAAAAAOAAIAAAAAAAAAAAANAAIAAAAAAAAAAAAMAAIAAAAAAAAAAAALAAIAAAAAAAAAAAAKAAIAAAAAAAAAAAAJAAIAAAAAAAAAAAAIAAIAAAAAAAAAAAAHAAIAAAAAAAAAAAAGAAIAAAAAAAAAAAADAAIAAAAAAAAAAAACAAIAAAAAAAAAAAABAAIAAAAAAAAAAAAAAAIAAAAAAAAAAAAEAAIAAAAAAAAAAAAFAAIAAAAAAAAAAAATAP//CAAAAAAAAAAUAP//AgAAAAAAAAAUAP7/CAAAAAAAAAAVAP//BQAAAAAAAAAVAP7/BwAAAAAAAAAWAP//BwAAAAAAAAA=")
 tile_set = ExtResource("3_oxtxw")
 rendering_quadrant_size = 256
 
 [node name="Player" parent="." instance=ExtResource("2_5swkf")]
 position = Vector2(3917, -213)
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(0, 8)
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
+position = Vector2(0, -176.71)
+remote_path = NodePath("../../Camera2D")
+
+[node name="Bell" type="Sprite2D" parent="."]
+position = Vector2(3346, -187)
+texture = ExtResource("4_ckdtq")
+
+[node name="Rocks" type="Sprite2D" parent="."]
+position = Vector2(3183, -52)
+texture = ExtResource("5_jitlm")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+material = SubResource("ShaderMaterial_n07gp")
+position = Vector2(3917, -389.71)
+limit_left = 0
+limit_right = 7680
+position_smoothing_enabled = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
+
+[node name="ColorRect" type="ColorRect" parent="Camera2D/CanvasLayer"]
+material = SubResource("ShaderMaterial_n2jvj")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

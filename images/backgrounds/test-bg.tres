@@ -1,6 +1,8 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://tivyv7sx113g"]
+[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://tivyv7sx113g"]
 
 [ext_resource type="Texture2D" uid="uid://cscf6qo5uowtc" path="res://images/backgrounds/test-bg.png" id="1_ifqr0"]
+[ext_resource type="Texture2D" uid="uid://cath3asm5djkk" path="res://images/backgrounds/shipwreck.png" id="2_flrrc"]
+[ext_resource type="Texture2D" uid="uid://dgbrhskw2uvim" path="res://images/backgrounds/blue-deep.png" id="3_uj0em"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rdk2r"]
 texture = ExtResource("1_ifqr0")
@@ -14406,6 +14408,18 @@ texture_region_size = Vector2i(2560, 1440)
 158:89/0 = 0
 159:89/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_me5pu"]
+texture = ExtResource("2_flrrc")
+texture_region_size = Vector2i(2560, 1440)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1di3h"]
+texture = ExtResource("3_uj0em")
+texture_region_size = Vector2i(2560, 1440)
+0:0/0 = 0
+
 [resource]
 tile_size = Vector2i(2560, 1440)
 sources/0 = SubResource("TileSetAtlasSource_rdk2r")
+sources/1 = SubResource("TileSetAtlasSource_me5pu")
+sources/2 = SubResource("TileSetAtlasSource_1di3h")

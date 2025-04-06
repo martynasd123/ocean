@@ -6,8 +6,8 @@ var change_state
 var animated_sprite: AnimatedSprite2D
 var persistent_state: CharacterBody2D
 
-const speed: float = 20000.0
-const g = 9.8 * 1e+2
+const speed: float = 40000.0
+const g = 5 * 1e+2
 
 func _physics_process(_delta):
 	persistent_state.velocity.y += g * _delta
