@@ -8,9 +8,14 @@ func _ready():
 func _physics_process(_delta):
 	persistent_state.velocity.x = Input.get_axis("move_left", "move_right") * speed * _delta
 	
-	persistent_state.move_and_slide()
+	super._physics_process(_delta)
 	
 func _process(_delta):
+	if Input.is_action_pressed("move_right"):
+		animated_sprite.flip_h = false
+	elif Input.is_action_pressed("move_left"):
+		animated_sprite.flip_h = true
+		
 	if Input.is_action_pressed("jump"):
 		change_state.call("jump")
 	if Input.get_axis("move_left", "move_right") == 0:

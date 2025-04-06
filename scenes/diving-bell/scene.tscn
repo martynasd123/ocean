@@ -1,10 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cpd63ieith585"]
+[gd_scene load_steps=4 format=4 uid="uid://cpd63ieith585"]
 
 [ext_resource type="Texture2D" uid="uid://cscf6qo5uowtc" path="res://images/backgrounds/test-bg.png" id="1_3mxeo"]
 [ext_resource type="PackedScene" uid="uid://ro7jjanvt1rm" path="res://characters/player/player.tscn" id="2_5swkf"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_prao7"]
-size = Vector2(623.95, 20)
+[ext_resource type="TileSet" uid="uid://do08its31phhk" path="res://images/sprites/tiles/sand/sand.tres" id="3_oxtxw"]
 
 [node name="Diving-bell" type="Node2D"]
 
@@ -46,13 +44,14 @@ position = Vector2(5120, -2880)
 texture = ExtResource("1_3mxeo")
 
 [node name="Player" parent="." instance=ExtResource("2_5swkf")]
-position = Vector2(97, -8)
+position = Vector2(1280, -768)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(-97, 8)
 
-[node name="Area2D" type="StaticBody2D" parent="."]
-position = Vector2(0, 64.08)
+[node name="foreground" type="Node2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("RectangleShape2D_prao7")
+[node name="TileMapLayer" type="TileMapLayer" parent="foreground"]
+tile_map_data = PackedByteArray("AAABAP//BgAAAAAAAAACAP//BgAAAAAAAAADAP//BgAAAAAAAAAEAP//BgAAAAAAAAAFAP//BgAAAAAAAAAGAP//BgAAAAAAAAAHAP//BgAAAAAAAAAIAP//BgAAAAAAAAAJAP//BgAAAAAAAAAKAP//BgAAAAAAAAALAP//BgAAAAAAAAAMAP//BgAAAAAAAAANAP//BgAAAAAAAAAOAP//BgAAAAAAAAA=")
+tile_set = ExtResource("3_oxtxw")
+rendering_quadrant_size = 256
