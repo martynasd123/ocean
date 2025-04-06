@@ -1,0 +1,73 @@
+[gd_scene load_steps=12 format=3 uid="uid://ro7jjanvt1rm"]
+
+[ext_resource type="Script" path="res://characters/player/persistent_state.gd" id="1_gv5dr"]
+[ext_resource type="Texture2D" uid="uid://dae8pm5t5gept" path="res://images/sprites/player/run/run-1.png" id="1_ryh5a"]
+[ext_resource type="Texture2D" uid="uid://db5jkogvr7x3c" path="res://images/sprites/player/run/run-2.png" id="2_pbgcs"]
+[ext_resource type="Texture2D" uid="uid://dcbdbvg8aw601" path="res://images/sprites/player/run/run-3.png" id="3_fjwii"]
+[ext_resource type="Texture2D" uid="uid://dkp7puflijhk1" path="res://images/sprites/player/run/run-4.png" id="4_ykfx5"]
+[ext_resource type="Texture2D" uid="uid://njm3p5ckb6pl" path="res://images/sprites/player/run/run-5.png" id="5_xj0nb"]
+[ext_resource type="Texture2D" uid="uid://dl1l1ri2quq7v" path="res://images/sprites/player/run/run-6.png" id="6_xl0tn"]
+[ext_resource type="Texture2D" uid="uid://bwh2m26u0bbtv" path="res://images/sprites/player/run/run-7.png" id="7_lm6gf"]
+[ext_resource type="Texture2D" uid="uid://8qnb5pa4ganq" path="res://images/sprites/player/run/run-8.png" id="8_hv64y"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_na18e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ryh5a")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_hv64y")
+}],
+"loop": false,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ryh5a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_pbgcs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_fjwii")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ykfx5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_xj0nb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_xl0tn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_lm6gf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_hv64y")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6c65p"]
+size = Vector2(30, 50)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_gv5dr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_na18e")
+animation = &"jump"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3.85, 8.67)
+shape = SubResource("RectangleShape2D_6c65p")

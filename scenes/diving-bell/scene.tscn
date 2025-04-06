@@ -1,0 +1,58 @@
+[gd_scene load_steps=4 format=3 uid="uid://cpd63ieith585"]
+
+[ext_resource type="Texture2D" uid="uid://cscf6qo5uowtc" path="res://images/backgrounds/test-bg.png" id="1_3mxeo"]
+[ext_resource type="PackedScene" uid="uid://ro7jjanvt1rm" path="res://characters/player/player.tscn" id="2_5swkf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_prao7"]
+size = Vector2(623.95, 20)
+
+[node name="Diving-bell" type="Node2D"]
+
+[node name="background" type="Parallax2D" parent="."]
+
+[node name="Test-bg" type="Sprite2D" parent="background"]
+texture = ExtResource("1_3mxeo")
+
+[node name="Test-bg2" type="Sprite2D" parent="background"]
+position = Vector2(2560, 0)
+texture = ExtResource("1_3mxeo")
+
+[node name="Test-bg3" type="Sprite2D" parent="background"]
+position = Vector2(5120, 0)
+texture = ExtResource("1_3mxeo")
+
+[node name="Test-bg4" type="Sprite2D" parent="background"]
+position = Vector2(0, -1440)
+texture = ExtResource("1_3mxeo")
+
+[node name="Test-bg5" type="Sprite2D" parent="background"]
+position = Vector2(2560, -1440)
+texture = ExtResource("1_3mxeo")
+
+[node name="Test-bg6" type="Sprite2D" parent="background"]
+position = Vector2(5120, -1440)
+texture = ExtResource("1_3mxeo")
+
+[node name="Test-bg7" type="Sprite2D" parent="background"]
+position = Vector2(0, -2880)
+texture = ExtResource("1_3mxeo")
+
+[node name="Test-bg8" type="Sprite2D" parent="background"]
+position = Vector2(2560, -2880)
+texture = ExtResource("1_3mxeo")
+
+[node name="Test-bg9" type="Sprite2D" parent="background"]
+position = Vector2(5120, -2880)
+texture = ExtResource("1_3mxeo")
+
+[node name="Player" parent="." instance=ExtResource("2_5swkf")]
+position = Vector2(97, -8)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(-97, 8)
+
+[node name="Area2D" type="StaticBody2D" parent="."]
+position = Vector2(0, 64.08)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_prao7")
