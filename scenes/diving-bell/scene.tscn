@@ -5,7 +5,7 @@
 [ext_resource type="TileSet" uid="uid://do08its31phhk" path="res://images/sprites/tiles/sand/sand.tres" id="3_oxtxw"]
 [ext_resource type="Texture2D" uid="uid://6mn30t0av0sh" path="res://images/sprites/bell/bell.png" id="4_ckdtq"]
 [ext_resource type="Texture2D" uid="uid://bruvixixg5iqu" path="res://images/sprites/rocks/rocks.png" id="5_jitlm"]
-[ext_resource type="Shader" path="res://shaders/distortion.gdshader" id="6_88vih"]
+[ext_resource type="Shader" uid="uid://cp2uaac2rxfq2" path="res://shaders/distortion.gdshader" id="6_88vih"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_u5mc1"]
 
@@ -14,9 +14,9 @@ noise = SubResource("FastNoiseLite_u5mc1")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_n07gp"]
 shader = ExtResource("6_88vih")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_s374e")
 shader_parameter/speed = Vector2(0.1, 0.01)
 shader_parameter/intensity = 0.01
-shader_parameter/noise_texture = SubResource("NoiseTexture2D_s374e")
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_pc5k3"]
 
@@ -26,9 +26,9 @@ noise = SubResource("FastNoiseLite_pc5k3")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_n2jvj"]
 shader = ExtResource("6_88vih")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_bihif")
 shader_parameter/speed = Vector2(0.1, 0.01)
 shader_parameter/intensity = 0.01
-shader_parameter/noise_texture = SubResource("NoiseTexture2D_bihif")
 
 [node name="Diving-bell" type="Node2D"]
 
