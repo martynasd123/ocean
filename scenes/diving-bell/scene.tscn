@@ -1,57 +1,28 @@
 [gd_scene load_steps=4 format=4 uid="uid://cpd63ieith585"]
 
-[ext_resource type="Texture2D" uid="uid://cscf6qo5uowtc" path="res://images/backgrounds/test-bg.png" id="1_3mxeo"]
 [ext_resource type="PackedScene" uid="uid://ro7jjanvt1rm" path="res://characters/player/player.tscn" id="2_5swkf"]
+[ext_resource type="TileSet" uid="uid://tivyv7sx113g" path="res://images/backgrounds/test-bg.tres" id="2_k7tjk"]
 [ext_resource type="TileSet" uid="uid://do08its31phhk" path="res://images/sprites/tiles/sand/sand.tres" id="3_oxtxw"]
 
 [node name="Diving-bell" type="Node2D"]
 
 [node name="background" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.3, 0.3)
 
-[node name="Test-bg" type="Sprite2D" parent="background"]
-texture = ExtResource("1_3mxeo")
-
-[node name="Test-bg2" type="Sprite2D" parent="background"]
-position = Vector2(2560, 0)
-texture = ExtResource("1_3mxeo")
-
-[node name="Test-bg3" type="Sprite2D" parent="background"]
-position = Vector2(5120, 0)
-texture = ExtResource("1_3mxeo")
-
-[node name="Test-bg4" type="Sprite2D" parent="background"]
-position = Vector2(0, -1440)
-texture = ExtResource("1_3mxeo")
-
-[node name="Test-bg5" type="Sprite2D" parent="background"]
-position = Vector2(2560, -1440)
-texture = ExtResource("1_3mxeo")
-
-[node name="Test-bg6" type="Sprite2D" parent="background"]
-position = Vector2(5120, -1440)
-texture = ExtResource("1_3mxeo")
-
-[node name="Test-bg7" type="Sprite2D" parent="background"]
-position = Vector2(0, -2880)
-texture = ExtResource("1_3mxeo")
-
-[node name="Test-bg8" type="Sprite2D" parent="background"]
-position = Vector2(2560, -2880)
-texture = ExtResource("1_3mxeo")
-
-[node name="Test-bg9" type="Sprite2D" parent="background"]
-position = Vector2(5120, -2880)
-texture = ExtResource("1_3mxeo")
-
-[node name="Player" parent="." instance=ExtResource("2_5swkf")]
-position = Vector2(1280, -768)
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(-97, 8)
+[node name="TileMapLayer" type="TileMapLayer" parent="background"]
+position = Vector2(0, 720)
+tile_map_data = PackedByteArray("AAAAAP//AAAAAAAAAAABAP//AAAAAAAAAAACAP//AAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAP7/AAAAAAAAAAABAP7/AAAAAAAAAAACAP7/AAAAAAAAAAA=")
+tile_set = ExtResource("2_k7tjk")
 
 [node name="foreground" type="Node2D" parent="."]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="foreground"]
-tile_map_data = PackedByteArray("AAABAP//BgAAAAAAAAACAP//BgAAAAAAAAADAP//BgAAAAAAAAAEAP//BgAAAAAAAAAFAP//BgAAAAAAAAAGAP//BgAAAAAAAAAHAP//BgAAAAAAAAAIAP//BgAAAAAAAAAJAP//BgAAAAAAAAAKAP//BgAAAAAAAAALAP//BgAAAAAAAAAMAP//BgAAAAAAAAANAP//BgAAAAAAAAAOAP//BgAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAAAAAABgAAAAAAAAABAAAABgAAAAAAAAACAAAABgAAAAAAAAADAAAABgAAAAAAAAAEAAAABgAAAAAAAAAFAAAABgAAAAAAAAAGAAAABgAAAAAAAAAHAAAABgAAAAAAAAAIAAAABgAAAAAAAAAJAAAABgAAAAAAAAAKAAAABgAAAAAAAAALAAAABgAAAAAAAAAMAAAABgAAAAAAAAANAAAABgAAAAAAAAAOAAAABgAAAAAAAAAPAAAABgAAAAAAAAAQAAAABgAAAAAAAAARAAAABgAAAAAAAAASAAAABgAAAAAAAAATAAAABgAAAAAAAAAUAAAABgAAAAAAAAAVAAAABgAAAAAAAAAWAAAABgAAAAAAAAAXAAAABgAAAAAAAAAYAAAABgAAAAAAAAAZAAAABgAAAAAAAAAaAAAABgAAAAAAAAAbAAAABgAAAAAAAAAcAAAABgAAAAAAAAAdAAAABgAAAAAAAAA=")
 tile_set = ExtResource("3_oxtxw")
 rendering_quadrant_size = 256
+
+[node name="Player" parent="." instance=ExtResource("2_5swkf")]
+position = Vector2(3917, -213)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(0, 8)
