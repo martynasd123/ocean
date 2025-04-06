@@ -1,9 +1,8 @@
-[gd_resource type="TileSet" load_steps=25 format=3 uid="uid://do08its31phhk"]
+[gd_resource type="TileSet" load_steps=23 format=3 uid="uid://do08its31phhk"]
 
 [ext_resource type="Texture2D" uid="uid://ci4blfjt65oqf" path="res://images/sprites/tiles/sand/tileCENTER.png" id="1_gtutg"]
 [ext_resource type="Texture2D" uid="uid://b8ifokcmyxcja" path="res://images/sprites/tiles/sand/tileE.png" id="2_vph8y"]
 [ext_resource type="Texture2D" uid="uid://c8bha2f4yvnge" path="res://images/sprites/tiles/sand/tileSE.png" id="3_0uhrj"]
-[ext_resource type="Texture2D" uid="uid://weambatdun35" path="res://images/sprites/tiles/sand/tilesW.png" id="4_8ulcv"]
 [ext_resource type="Texture2D" uid="uid://bo57ss7ppjr0p" path="res://images/sprites/tiles/sand/tileINNERSE.png" id="5_8riuk"]
 [ext_resource type="Texture2D" uid="uid://dw4v721rs5qi" path="res://images/sprites/tiles/sand/tileINNEWNE.png" id="6_yxhgc"]
 [ext_resource type="Texture2D" uid="uid://c7w4p4x1ssdpo" path="res://images/sprites/tiles/sand/tileINNEWNW.png" id="7_ulil7"]
@@ -26,11 +25,6 @@ texture_region_size = Vector2i(256, 256)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5ieov"]
 texture = ExtResource("3_0uhrj")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wh3il"]
-texture = ExtResource("4_8ulcv")
 texture_region_size = Vector2i(256, 256)
 0:0/0 = 0
 
@@ -89,4 +83,3 @@ sources/7 = SubResource("TileSetAtlasSource_bda86")
 sources/8 = SubResource("TileSetAtlasSource_54d17")
 sources/9 = SubResource("TileSetAtlasSource_x4srf")
 sources/10 = SubResource("TileSetAtlasSource_5ieov")
-sources/11 = SubResource("TileSetAtlasSource_wh3il")
